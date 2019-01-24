@@ -1,0 +1,31 @@
+server:
+  port: 8769
+spring:
+  application:
+    name: configserver
+  # 配置使用本地储存
+  #  profiles:
+  #    active: native
+  cloud:
+    config:
+      server:
+        #        native:
+        #          search-locations: /home/czy/office/配置文件/properties/ # 搜索本地路径下的properties文件夹下的文件
+        git:
+          uri: https://github.com/c409998649/properties
+          #search-paths表示仓库下的子目录
+          #search-paths: application
+          username: c409998649
+          password: Love60788586
+#指定服务注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+# 屏蔽安全验证
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
